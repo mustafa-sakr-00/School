@@ -17,7 +17,7 @@ public class SubjectManager {
         String name = scanner.next();
 
         Subject subject = new Subject();
-        subject.name = name;
+        subject.setName(name);
 
         subjects.add(subject);
     }
@@ -32,7 +32,7 @@ public class SubjectManager {
         String name = scanner.next();
 
         Subject subject = subjects.get(index);
-        subject.name = name;
+        subject.setName(name);
     }
 
     void remove() {

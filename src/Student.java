@@ -1,7 +1,17 @@
 public class Student {
-    String name;
-    int age;
+    private String name;
+    private double age;
     Subject subject;
+
+    public String getName() {
+        return name;
+    }
+    public void setName() {
+        this.name = name;
+    }
+    public Double getAge() {
+        return age;
+    }
 
     @Override
     public String toString() {
