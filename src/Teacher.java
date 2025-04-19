@@ -1,6 +1,12 @@
 public class Teacher {
-    String name;
+   private String name;
     Subject subject;
+
+    public String getName() {
+        return name;
+    }
+    public void setName() {
+        this.name = name;
 
     @Override
     public String toString() {

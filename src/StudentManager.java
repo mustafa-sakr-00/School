@@ -13,9 +13,9 @@ public class StudentManager {
         System.out.print("Enter student age: ");
         int age = scanner.nextInt();
 
-        Student student = new Student();
-        student.name = name;
-        student.age = age;
+        Student student = age Student();
+        student.setName(name);
+        student.setAge(age);
 
         students.add(student);
     }
@@ -55,8 +55,8 @@ public class StudentManager {
         int age = scanner.nextInt();
 
         Student student = students.get(index);
-        student.name = name;
-        student.age = age;
+        student.setName(name);
+        student.setAge(age);
     }
 
     void setSubject() {

@@ -1,9 +1,15 @@
 import java.util.ArrayList;
 
 public class Subject {
-    String name;
+    private name;
     Teacher teacher;
     ArrayList<Student> students = new ArrayList<>();
+
+    public String getName() {
+        return name;
+    }
+    public void setName() {
+        this.name = name;
 
     String getStudentsString() {
         String s = "";
