@@ -8,7 +8,7 @@ public class TeacherManager {
 
     void print() {
         for (int i = 0; i < teachers.size(); i++) {
-            System.out.println(i + ": " + teachers.get(i).toString());
+            System.out.println(i + ": " + teachers.get(i).toStringLong());
         }
     }
 
@@ -20,6 +20,8 @@ public class TeacherManager {
         teacher.name = name;
 
         teachers.add(teacher);
+
+        Main.personManager.addExisting(teacher);
     }
 
     void remove() {
@@ -36,6 +38,8 @@ public class TeacherManager {
         }
 
         teachers.remove(teacher);
+
+        Main.personManager.remove(teacher);
     }
 
     void edit() {

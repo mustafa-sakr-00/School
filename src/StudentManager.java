@@ -18,6 +18,8 @@ public class StudentManager {
         student.age = age;
 
         students.add(student);
+
+        Main.personManager.addExisting(student);
     }
 
     void remove() {
@@ -34,11 +36,13 @@ public class StudentManager {
         }
 
         students.remove(student);
+
+        Main.personManager.remove(student);
     }
 
     void print() {
         for (int i = 0; i < students.size(); i++) {
-            System.out.println(i + ": " + students.get(i).toString());
+            System.out.println(i + ": " + students.get(i).toStringLong());
         }
     }
 

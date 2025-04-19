@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-public class Subject {
+public class Subject implements Printable{
+    String id;
     String name;
     Teacher teacher;
     ArrayList<Student> students = new ArrayList<>();
@@ -15,18 +16,23 @@ public class Subject {
     }
 
     @Override
-    public String toString() {
+    public String toStringShort() {
+        return name;
+    }
+
+    @Override
+    public String toStringLong() {
         String s = "";
         s += name;
         if (teacher != null) {
             s += ", ";
-            s += teacher.name;
+            s += teacher.toStringShort();
         }
         s += ", ";
         s += "students: ";
         for (int i = 0; i < students.size(); i++)
         {
-            s += students.get(i).name;
+            s += students.get(i).toStringShort();
             s += ", ";
         }
         return s;

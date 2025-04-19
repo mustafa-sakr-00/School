@@ -8,7 +8,7 @@ public class SubjectManager {
 
     void print() {
         for (int i = 0; i < subjects.size(); i++) {
-            System.out.println(i + ": " + subjects.get(i).toString());
+            System.out.println(i + ": " + subjects.get(i).toStringLong());
         }
     }
 
