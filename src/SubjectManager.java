@@ -43,9 +43,9 @@ public class SubjectManager {
 
         Subject subject = subjects.get(index);
 
-        Teacher teacher = subject.teacher;
+        Teacher teacher = subject.getTeacher();
         if (teacher != null) {
-            teacher.subject = null;
+            teacher.setSubject(null);
         }
 
         for (int i = 0; i < subject.students.size(); i++) {
@@ -70,12 +70,12 @@ public class SubjectManager {
         Subject subject = subjects.get(subjectIndex);
         Teacher teacher = Main.teacherManager.teachers.get(teacherIndex);
 
-        Subject oldSubject = teacher.subject;
+        Subject oldSubject = teacher.getSubject();
         if (oldSubject != null) {
             oldSubject.setTeacher(null);
         }
 
-        Teacher oldTeacher = subject.teacher;
+        Teacher oldTeacher = subject.getTeacher();
         if (oldTeacher != null) {
             oldTeacher.setSubject(null);
         }

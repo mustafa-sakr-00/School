@@ -74,7 +74,7 @@ public class TeacherManager {
             oldSubject.setTeacher(null);
         }
 
-        Teacher oldTeacher = subject.teacher;
+        Teacher oldTeacher = subject.getTeacher();
         if (oldTeacher != null) {
             oldTeacher.setSubject(null);
         }

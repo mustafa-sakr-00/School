@@ -1,5 +1,5 @@
 public class Teacher extends Person implements Printable{
-    Subject subject;
+   private Subject subject;
 
     public Subject getSubject() {
         return subject;

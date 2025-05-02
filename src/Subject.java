@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Subject implements Printable{
-    String id;
-    String name;
-    Teacher teacher;
+   private String id;
+   private String name;
+   private Teacher teacher;
     ArrayList<Student> students = new ArrayList<>();
 
     public String getId() {
