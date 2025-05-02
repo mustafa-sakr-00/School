@@ -8,7 +8,7 @@ public class SubjectManager {
 
     void print() {
         for (int i = 0; i < subjects.size(); i++) {
-            System.out.println(i + ": " + subjects.get(i).toString());
+            System.out.println(i + ": " + subjects.get(i).toStringLong());
         }
     }
 
@@ -17,7 +17,7 @@ public class SubjectManager {
         String name = scanner.next();
 
         Subject subject = new Subject();
-        subject.name = name;
+        subject.setName(name);
 
         subjects.add(subject);
     }
@@ -32,7 +32,7 @@ public class SubjectManager {
         String name = scanner.next();
 
         Subject subject = subjects.get(index);
-        subject.name = name;
+        subject.setName(name);
     }
 
     void remove() {
@@ -43,14 +43,14 @@ public class SubjectManager {
 
         Subject subject = subjects.get(index);
 
-        Teacher teacher = subject.teacher;
+        Teacher teacher = subject.getTeacher();
         if (teacher != null) {
-            teacher.subject = null;
+            teacher.setSubject(null);
         }
 
         for (int i = 0; i < subject.students.size(); i++) {
             Student student = subject.students.get(i);
-            student.subject = null;
+            student.setSubject(null);
         }
 
         subjects.remove(subject);
@@ -70,18 +70,18 @@ public class SubjectManager {
         Subject subject = subjects.get(subjectIndex);
         Teacher teacher = Main.teacherManager.teachers.get(teacherIndex);
 
-        Subject oldSubject = teacher.subject;
+        Subject oldSubject = teacher.getSubject();
         if (oldSubject != null) {
-            oldSubject.teacher = null;
+            oldSubject.setTeacher(null);
         }
 
-        Teacher oldTeacher = subject.teacher;
+        Teacher oldTeacher = subject.getTeacher();
         if (oldTeacher != null) {
-            oldTeacher.subject = null;
+            oldTeacher.setSubject(null);
         }
 
-        teacher.subject = subject;
-        subject.teacher = teacher;
+        teacher.setSubject(subject);
+        subject.setTeacher(teacher);
     }
 
     void addStudent() {
@@ -98,13 +98,13 @@ public class SubjectManager {
         Subject subject = subjects.get(subjectIndex);
         Student student = Main.studentManager.students.get(studentIndex);
 
-        Subject oldSubject = student.subject;
+        Subject oldSubject = student.getSubject();
         if (oldSubject != null) {
             oldSubject.students.remove(student);
         }
 
         subject.students.add(student);
-        student.subject = subject;
+        student.setSubject(subject);
     }
 
     void removeStudent() {
@@ -122,7 +122,7 @@ public class SubjectManager {
 
         Student student = subject.students.get(studentIndex);
 
-        student.subject = null;
+        student.setSubject(null);
 
         subject.students.remove(student);
     }

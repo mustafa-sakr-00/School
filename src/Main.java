@@ -3,9 +3,20 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
 
+    static PersonManager personManager = new PersonManager();
     static StudentManager studentManager = new StudentManager();
     static SubjectManager subjectManager = new SubjectManager();
     static TeacherManager teacherManager = new TeacherManager();
+
+    static void personOperation() {
+        System.out.println("Choose operation (print)");
+        String op = scanner.next();
+        if (op.equals("print")) {
+            personManager.print();
+        } else {
+            System.out.println("Unknown operation!");
+        }
+    }
 
     static void studentOperation() {
         System.out.println("Choose operation (add - edit - remove - print - setSubject)");
@@ -71,7 +82,7 @@ public class Main {
         String ans;
 
         do {
-            System.out.println("Choose operation (student - teacher - subject)");
+            System.out.println("Choose operation (student - teacher - subject - person)");
             String op = scanner.next();
 
             if (op.equals("student")) {
@@ -80,6 +91,8 @@ public class Main {
                 teacherOperation();
             } else if (op.equals("subject")) {
                 subjectOperation();
+            } else if (op.equals("person")) {
+                personOperation();
             } else {
                 System.out.println("Unknown operation!");
             }

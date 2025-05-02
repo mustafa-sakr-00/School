@@ -8,7 +8,7 @@ public class TeacherManager {
 
     void print() {
         for (int i = 0; i < teachers.size(); i++) {
-            System.out.println(i + ": " + teachers.get(i).toString());
+            System.out.println(i + ": " + teachers.get(i).toStringLong());
         }
     }
 
@@ -17,9 +17,11 @@ public class TeacherManager {
         String name = scanner.next();
 
         Teacher teacher = new Teacher();
-        teacher.name = name;
+        teacher.setName(name);
 
         teachers.add(teacher);
+
+        Main.personManager.addExisting(teacher);
     }
 
     void remove() {
@@ -30,12 +32,14 @@ public class TeacherManager {
 
         Teacher teacher = teachers.get(index);
 
-        Subject subject = teacher.subject;
+        Subject subject = teacher.getSubject();
         if (subject != null) {
-            subject.teacher = null;
+            subject.setTeacher(null);
         }
 
         teachers.remove(teacher);
+
+        Main.personManager.remove(teacher);
     }
 
     void edit() {
@@ -48,7 +52,7 @@ public class TeacherManager {
         String name = scanner.next();
 
         Teacher teacher = teachers.get(index);
-        teacher.name = name;
+        teacher.setName(name);
     }
 
     void setSubject() {
@@ -65,17 +69,17 @@ public class TeacherManager {
         Teacher teacher = teachers.get(teacherIndex);
         Subject subject = Main.subjectManager.subjects.get(subjectIndex);
 
-        Subject oldSubject = teacher.subject;
+        Subject oldSubject = teacher.getSubject();
         if (oldSubject != null) {
-            oldSubject.teacher = null;
+            oldSubject.setTeacher(null);
         }
 
-        Teacher oldTeacher = subject.teacher;
+        Teacher oldTeacher = subject.getTeacher();
         if (oldTeacher != null) {
-            oldTeacher.subject = null;
+            oldTeacher.setSubject(null);
         }
 
-        teacher.subject = subject;
-        subject.teacher = teacher;
+        teacher.setSubject(subject);
+        subject.setTeacher(teacher);
     }
 }
