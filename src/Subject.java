@@ -6,10 +6,34 @@ public class Subject implements Printable{
     Teacher teacher;
     ArrayList<Student> students = new ArrayList<>();
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     String getStudentsString() {
         String s = "";
         for (int i = 0; i < students.size(); i++) {
-            s += i + ": " + students.get(i).name;
+            s += i + ": " + students.get(i).getName();
             s += "\n";
         }
         return s;
@@ -17,7 +41,7 @@ public class Subject implements Printable{
 
     @Override
     public String toStringShort() {
-        return name;
+        return getName();
     }
 
     @Override

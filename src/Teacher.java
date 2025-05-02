@@ -1,15 +1,23 @@
 public class Teacher extends Person implements Printable{
     Subject subject;
 
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
     @Override
     public String toStringShort() {
-        return name;
+        return getName();
     }
 
     @Override
     public String toStringLong() {
         String s = "";
-        s += name;
+        s += getName();
         if (subject != null) {
             s += ", ";
             s += subject.toStringShort();

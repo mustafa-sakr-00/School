@@ -17,7 +17,7 @@ public class TeacherManager {
         String name = scanner.next();
 
         Teacher teacher = new Teacher();
-        teacher.name = name;
+        teacher.setName(name);
 
         teachers.add(teacher);
 
@@ -52,7 +52,7 @@ public class TeacherManager {
         String name = scanner.next();
 
         Teacher teacher = teachers.get(index);
-        teacher.name = name;
+        teacher.setName(name);
     }
 
     void setSubject() {

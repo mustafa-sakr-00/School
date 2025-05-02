@@ -14,8 +14,8 @@ public class StudentManager {
         int age = scanner.nextInt();
 
         Student student = new Student();
-        student.name = name;
-        student.age = age;
+        student.setName(name);
+        student.setAge(age);
 
         students.add(student);
 
@@ -30,7 +30,7 @@ public class StudentManager {
 
         Student student = students.get(index);
 
-        Subject subject = student.subject;
+        Subject subject = student.getSubject();
         if (subject != null) {
             subject.students.remove(student);
         }
@@ -59,8 +59,8 @@ public class StudentManager {
         int age = scanner.nextInt();
 
         Student student = students.get(index);
-        student.name = name;
-        student.age = age;
+        student.setName(name);
+        student.setAge(age);
     }
 
     void setSubject() {
@@ -77,12 +77,12 @@ public class StudentManager {
         Student student = students.get(studentIndex);
         Subject subject = Main.subjectManager.subjects.get(subjectIndex);
 
-        Subject oldSubject = student.subject;
+        Subject oldSubject = student.getSubject();
         if (oldSubject != null) {
             oldSubject.students.remove(student);
         }
 
-        student.subject = subject;
+        student.setSubject(subject);
         subject.students.add(student);
     }
 }
