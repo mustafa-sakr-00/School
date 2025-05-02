@@ -32,9 +32,9 @@ public class TeacherManager {
 
         Teacher teacher = teachers.get(index);
 
-        Subject subject = teacher.subject;
+        Subject subject = teacher.getSubject();
         if (subject != null) {
-            subject.teacher = null;
+            subject.setTeacher(null);
         }
 
         teachers.remove(teacher);
@@ -69,17 +69,17 @@ public class TeacherManager {
         Teacher teacher = teachers.get(teacherIndex);
         Subject subject = Main.subjectManager.subjects.get(subjectIndex);
 
-        Subject oldSubject = teacher.subject;
+        Subject oldSubject = teacher.getSubject();
         if (oldSubject != null) {
-            oldSubject.teacher = null;
+            oldSubject.setTeacher(null);
         }
 
         Teacher oldTeacher = subject.teacher;
         if (oldTeacher != null) {
-            oldTeacher.subject = null;
+            oldTeacher.setSubject(null);
         }
 
-        teacher.subject = subject;
-        subject.teacher = teacher;
+        teacher.setSubject(subject);
+        subject.setTeacher(teacher);
     }
 }

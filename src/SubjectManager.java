@@ -80,8 +80,8 @@ public class SubjectManager {
             oldTeacher.setSubject(null);
         }
 
-        teacher.subject = subject;
-        subject.teacher = teacher;
+        teacher.setSubject(subject);
+        subject.setTeacher(teacher);
     }
 
     void addStudent() {

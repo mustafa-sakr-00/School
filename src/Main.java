@@ -93,8 +93,7 @@ public class Main {
                 subjectOperation();
             } else if (op.equals("person")) {
                 personOperation();
-            }
-            else {
+            } else {
                 System.out.println("Unknown operation!");
             }
 
